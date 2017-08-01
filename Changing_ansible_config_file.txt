@@ -1,0 +1,24 @@
+[defaults]
+
+# some basic default values...
+
+#hostfile       = /etc/ansible/hosts
+hostfile	= /home/vagrant/hosts #--> To include our default host path
+library        = /usr/share/ansible
+remote_tmp     = $HOME/.ansible/tmp
+pattern        = *
+forks          = 5
+poll_interval  = 15
+sudo_user      = root 
+#ask_sudo_pass = True
+#ask_pass      = True
+transport      = smart
+remote_port    = 22
+
+# default user to use for playbooks if user is not specified
+# (/usr/bin/ansible will use current user as default)
+#remote_user = root
+
+remote_user = root  #--> To run ansible file as root user
+
+

@@ -1,0 +1,9 @@
+Install via:
+
+vagrant plugin install vagrant-scp
+
+Use it like so:
+
+vagrant scp <some_local_file_or_dir> [vm_name]:<somewhere_on_the_vm>
+
+vagrant scp /home/gjohn/Downloads/demo/ control:/home/vagrant 

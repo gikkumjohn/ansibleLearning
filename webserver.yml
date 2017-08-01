@@ -1,6 +1,7 @@
 ---
  - hosts: webserver
    tasks:
+   
     - name: install web components
       apt:
        name={{item}}
@@ -12,8 +13,19 @@
        - libapache2-mod-wsgi
        - python-pip
        - python-virtualenv
+       
     - name: ensure apache2 started
       service:
        name=apache2
        state=started
        enabled=yes       
+       
+    - name: ensure mod_wsgi enabled
+      apache2_module:
+       state=present name=wsgi
+      notify: restart_apache2
+
+   handlers:
+    - name: restart_apache2
+      service: 
+        name=apache2 state=restarted       

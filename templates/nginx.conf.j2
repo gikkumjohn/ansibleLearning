@@ -11,3 +11,18 @@ server {
     proxy_pass http://demo;
   }
 }
+
+#upstream {{ item.key }} {
+#  {% for server in groups.webserver %}
+#    server {{ server }}:{{ item.value.backend }};
+#  {% endfor %}
+#}
+#
+#server {
+#  listen {{ item.value.frontend }};
+#
+#  location / {
+#    proxy_pass http://{{ item.key }};
+#  }
+#}
+#

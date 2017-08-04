@@ -1,6 +1,11 @@
 ---
  - hosts: database
    roles:
-      - { role: mysql, db_name: demo, db_user_name: demo, db_user_pass: demo, db_user_host: '%' }
+     - role : mysql
+       db_user_name : "{{ db_user }}" #check the values from group_vars
+       db_user_pass : "{{ db_pass }}"
+       db_user_host : '%'
 
+
+#      - { role: mysql, db_name: demo, db_user_name: demo, db_user_pass: demo, db_user_host: '%' }
 #     - mysql

@@ -4,6 +4,7 @@ Vagrant.configure(2) do |config|
   control.vm.box = "ubuntu/trusty64"
   control.vm.network "private_network",ip:"192.168.0.10"
   control.vm.hostname = "control"
+  ansible.playbook = "nginx.yml"
  end
 
  config.vm.define "lb1" do |h|
